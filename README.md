@@ -1,2 +1,2 @@
 # haidata
-configurable modules for pandas dataframe cleaning with persistance
+Configurable Modules for pandas DataFrame cleaning with persistance

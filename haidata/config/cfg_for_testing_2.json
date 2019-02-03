@@ -1,0 +1,19 @@
+{
+  "ACTIONS": [
+    {
+      "ACTION": "fix_encode",
+      "ARGS": {
+      },
+      "SEQUENCE": 0
+    },
+    {
+      "ACTION": "to_datetime",
+      "ARGS": {
+        "INCLUDE": "Date"
+      },
+      "SEQUENCE": 1
+    }
+  ],
+  "py/object": "haidatacfg.HaiDataCfg",
+  "file_name": "C:/Code/bitbucket/hai/src\\python\\data_cleaning\\haidata\\config\\cfg_for_testing_2.json"
+}

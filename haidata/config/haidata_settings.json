@@ -1,0 +1,10 @@
+{
+  "COMMENT": "FILE_HANDLER is an optional key, in there the LOG_DIR is another optional key",
+  "CONSOLE_HANDLER": {
+    "LOG_LEVEL": "DEBUG"
+  },
+  "FILE_HANDLER": {
+    "LOG_LEVEL": "WARNING",
+    "COMMENT": "There is a LOG_DIR key that can be added, with value the location of the log file. It defaults to HAI_PATH environment variable if it exists and creates a logs directory in there. Otherwise it will default to the current directory and create a logs directory there"
+  }
+}

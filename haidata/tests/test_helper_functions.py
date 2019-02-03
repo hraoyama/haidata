@@ -3,12 +3,9 @@
 import sys, os
 import pandas as pd
 from pandas.util.testing import assert_frame_equal
+import haidata
 
-myPath = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, myPath + '/../')
-sys.path.insert(0, myPath + '/../../')
-
-from haidatacfg import HaiDataCfg
+from haidata.haidatacfg import HaiDataCfg
 
 
 def helper_assert_haidatacfg(d, has_actions=True, has_file_name=False):

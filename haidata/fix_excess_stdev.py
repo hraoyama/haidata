@@ -4,7 +4,7 @@ import numpy as np
 from distutils.util import strtobool
 import pandas as pd
 
-from haidatautils import mixed_list_to_int_list
+from .haidatautils import mixed_list_to_int_list
 
 logging.disable(sys.maxsize)
 logger = logging.getLogger(__name__)

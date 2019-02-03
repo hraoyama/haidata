@@ -3,22 +3,28 @@
 .. moduleauthor:: Hans Roggeman <hansroggeman2@gmail.com>
 
 """
+__version__ = '0.2'
 
 import pandas as pd
 import numpy as np
+import os
 
-from haidata.haidatacfg import HaiDataCfg
-from haidata.haidatautils import listify_strings
-from haidata.haidatautils import slice_string_to_list
-from haidata.haidatautils import to_int_list
-from haidata.haidatautils import dicts_get
+from .haidatautils import *
+from .haidatacfg import *
 
-from haidata.fix_encode import fix_encode
-from haidata.fix_colnames import fix_colnames
-from haidata.fix_empty_cols import fix_empty_cols
-from haidata.fix_excess_stdev import fix_excess_stdev
-from haidata.to_datetime import to_datetime
-from haidata.drop_cols import drop_cols
+from .drop_cols import *
+from .fix_colnames import *
+from .fix_empty_cols import *
+from .fix_encode import *
+from .fix_excess_stdev import *
+from .to_datetime import *
+from .turn_to_int import *
+
+myPath = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, myPath)
+sys.path.insert(0, os.path.join(myPath, 'config'))
+sys.path.insert(0, os.path.join(myPath, 'tests'))
+
 
 def start():
     # "This starts this module running ..."

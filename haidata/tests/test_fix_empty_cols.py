@@ -2,11 +2,12 @@ import sys
 import os
 import pandas as pd
 import numpy as np
+import haidata
 
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../')
 
-from haidatacfg import HaiDataCfg
+from haidata.haidatacfg import HaiDataCfg
 
 
 def test_fix_empty_cols():

@@ -10,11 +10,11 @@
     {
       "ACTION": "set_uneven_int",
       "ARGS": {
-        "EXCLUDE": "1:9"
+        "EXCLUDE": "0:2,4:8"
       },
       "SEQUENCE": 1
     }
   ],
-  "py/object": "haidatacfg.HaiDataCfg",
-  "file_name": "C:/Code/bitbucket/hai/src\\python\\data_cleaning\\haidata\\config\\cfg_for_testing.json"
+  "py/object": "haidata.haidatacfg.HaiDataCfg",
+  "file_name": "..\\config\\cfg_for_testing.json"
 }

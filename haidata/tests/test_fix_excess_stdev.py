@@ -3,11 +3,12 @@ import os
 import pandas as pd
 import numpy as np
 from pandas.util.testing import assert_frame_equal
+import haidata
 
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../')
 
-from haidatacfg import HaiDataCfg
+from haidata.haidatacfg import HaiDataCfg
 
 
 def test_fix_excess_stdev():

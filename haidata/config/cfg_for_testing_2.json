@@ -14,6 +14,6 @@
       "SEQUENCE": 1
     }
   ],
-  "py/object": "haidatacfg.HaiDataCfg",
-  "file_name": "C:/Code/bitbucket/hai/src\\python\\data_cleaning\\haidata\\config\\cfg_for_testing_2.json"
+  "py/object": "haidata.haidatacfg.HaiDataCfg",
+  "file_name": "..\\config\\cfg_for_testing_2.json"
 }

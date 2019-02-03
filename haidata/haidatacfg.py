@@ -10,7 +10,8 @@
 
 """
 
-import os, sys
+import os
+import sys
 import jsonpickle
 import json
 import traceback
@@ -22,17 +23,18 @@ import math
 from datetime import datetime
 from operator import itemgetter
 
-from fix_encode import fix_encode
-from fix_colnames import fix_colnames
-from fix_empty_cols import fix_empty_cols
-from to_datetime import to_datetime
-from drop_cols import drop_cols
-from fix_excess_stdev import fix_excess_stdev
-from haidatautils import dicts_get
+from .fix_encode import fix_encode
+from .fix_colnames import fix_colnames
+from .fix_empty_cols import fix_empty_cols
+from .to_datetime import to_datetime
+from .drop_cols import drop_cols
+from .fix_excess_stdev import fix_excess_stdev
+from .haidatautils import dicts_get
 
 logging.disable(sys.maxsize)
 logger = logging.getLogger(__name__)
 
+myPath = os.path.dirname(os.path.abspath(__file__))
 
 class HaiDataCfg(object):
     """We use this as a public class example class.
@@ -157,6 +159,8 @@ class HaiDataCfg(object):
             json_file_name_to_use = json_file_name
             if json_file_name_to_use is None:
                 json_file_name_to_use = os.path.join(HaiDataCfg.get_path(), 'config', 'default_cfg.json')
+                if not os.path.isfile(json_file_name_to_use):
+                    json_file_name_to_use = os.path.join(myPath, 'config', 'default_cfg.json')
                 use_default_config = True
 
             dict_string_to_use = None
@@ -214,7 +218,7 @@ class HaiDataCfg(object):
 
     @classmethod
     def _set_valid_dict(cls, input_dict, file_name=None):
-        input_dict["py/object"] = 'haidatacfg.' + cls.__name__  # '__main__.' +
+        input_dict["py/object"] = 'haidata.haidatacfg.' + cls.__name__  # '__main__.' +
         input_dict["file_name"] = file_name
         if cls._HAI_PATH is None:
             cls._initialize()

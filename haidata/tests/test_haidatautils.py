@@ -4,9 +4,11 @@ import sys, os
 
 # this places the test file directory in the path such that we can run the test from command line
 myPath = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, myPath)
 sys.path.insert(0, myPath + '/../')
+sys.path.insert(0, myPath + '/../config')
 
-import haidatautils
+from haidata import haidatautils
 
 
 def test_int_list_to_element_list():

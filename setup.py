@@ -9,7 +9,7 @@ setup(
     # Needed to actually package something
     packages=['haidata'],
     # Needed for dependencies
-    install_requires=['numpy','pandas','pytest','operator','jsonpickle','json','traceback','logging','math','datetime','ftfy','distutils','itertools'],
+    install_requires=['numpy','pandas','pytest','jsonpickle','json','traceback','logging','datetime','ftfy','distutils'],
     # *strongly* suggested for sharing
     version='0.1',
     # The license can be anything you like

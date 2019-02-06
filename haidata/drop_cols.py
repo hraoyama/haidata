@@ -1,7 +1,7 @@
 
 import logging
 import sys
-from .haidatautils import mixed_list_to_int_list
+from haidatautils import mixed_list_to_int_list
 
 logging.disable(sys.maxsize)
 logger = logging.getLogger(__name__)

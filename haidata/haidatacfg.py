@@ -23,13 +23,13 @@ import math
 from datetime import datetime
 from operator import itemgetter
 
-from .fix_encode import fix_encode
-from .fix_colnames import fix_colnames
-from .fix_empty_cols import fix_empty_cols
-from .to_datetime import to_datetime
-from .drop_cols import drop_cols
-from .fix_excess_stdev import fix_excess_stdev
-from .haidatautils import dicts_get
+from fix_encode import fix_encode
+from fix_colnames import fix_colnames
+from fix_empty_cols import fix_empty_cols
+from to_datetime import to_datetime
+from drop_cols import drop_cols
+from fix_excess_stdev import fix_excess_stdev
+from haidatautils import dicts_get
 
 logging.disable(sys.maxsize)
 logger = logging.getLogger(__name__)

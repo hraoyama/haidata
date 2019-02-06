@@ -2,7 +2,7 @@
 import pandas as pd
 import logging
 import sys
-from .haidatautils import int_list_from_exclude_include
+from haidatautils import int_list_from_exclude_include
 
 logging.disable(sys.maxsize)
 logger = logging.getLogger(__name__)

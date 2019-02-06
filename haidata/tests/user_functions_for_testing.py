@@ -9,7 +9,7 @@ import pandas as pd
 import copy
 
 from operator import itemgetter
-from haidata.haidatautils import to_int_list
+from haidatautils import to_int_list
 
 
 def set_uneven_int(df_input, arg_dict):

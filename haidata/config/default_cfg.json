@@ -1,6 +1,5 @@
 {
-  "ACTIONS": [
-  ],
-  "py/object": "haidata.haidatacfg.HaiDataCfg",
-  "file_name": "..\\config\\default_cfg.json"
+    "ACTIONS": [],
+    "py/object": "haidatacfg.HaiDataCfg",
+    "file_name": "D:\\CodeProjects\\haidata\\haidata\\tests\\../config\\default_cfg.json"
 }

@@ -7,7 +7,7 @@ myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath)
 sys.path.insert(0, myPath + '/../')
 
-from haidata.haidatacfg import HaiDataCfg
+from haidatacfg import HaiDataCfg
 
 df_input_original = pd.DataFrame.from_dict(dict({'ArtistBio': {1: 'Spanish, born 1936',
                                2: 'American, born 1941',

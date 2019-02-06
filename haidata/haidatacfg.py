@@ -19,6 +19,8 @@ import logging
 import copy
 import pandas as pd
 import math
+from pkgutil import iter_modules
+
 
 from datetime import datetime
 from operator import itemgetter
@@ -35,6 +37,10 @@ logging.disable(sys.maxsize)
 logger = logging.getLogger(__name__)
 
 myPath = os.path.dirname(os.path.abspath(__file__))
+
+
+def module_exists(module_name):
+    return module_name in (name for loader, name, is_pkg in iter_modules())
 
 class HaiDataCfg(object):
     """We use this as a public class example class.
@@ -179,7 +185,7 @@ class HaiDataCfg(object):
                     dict_string_to_use = json_file_name.strip()
                     instance = jsonpickle.decode(dict_string_to_use)
 
-            if type(instance) is HaiDataCfg:
+            if instance.__class__.__name__ is cls.__name__:
                 instance.file_name = json_file_name_to_use if not direct_dict_input else None
             else:
                 # JSON in the file was not specified according to jsonpickle, that is OK, it is a dict
@@ -190,7 +196,7 @@ class HaiDataCfg(object):
                 if use_default_config:
                     instance.file_name = json_file_name_to_use
 
-            assert (type(instance) == HaiDataCfg)
+            assert (instance.__class__.__name__ is cls.__name__)
             instance._register_user_functions_from_actions(_locals)
             return instance
 
@@ -218,7 +224,8 @@ class HaiDataCfg(object):
 
     @classmethod
     def _set_valid_dict(cls, input_dict, file_name=None):
-        input_dict["py/object"] = 'haidata.haidatacfg.' + cls.__name__  # '__main__.' +
+        input_dict["py/object"] = "haidata.haidatacfg." + cls.__name__ if module_exists(
+            "haidata") else "haidatacfg." + cls.__name__
         input_dict["file_name"] = file_name
         if cls._HAI_PATH is None:
             cls._initialize()

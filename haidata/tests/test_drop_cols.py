@@ -2,12 +2,11 @@ import sys
 import os
 import pandas as pd
 import numpy as np
-import haidata
 
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../')
 
-from haidata.haidatacfg import HaiDataCfg
+from haidatacfg import HaiDataCfg
 
 
 def test_drop_cols():
@@ -33,3 +32,6 @@ def test_drop_cols():
     
     assert ('col5' in df.columns.values)
     assert ('col5' not in df2.columns.values)
+ 
+# if __name__ == "__main__":
+#     test_drop_cols()

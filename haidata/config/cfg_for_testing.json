@@ -1,20 +1,20 @@
 {
-  "ACTIONS": [
-    {
-      "ACTION": "fix_encode",
-      "ARGS": {
-        "EXCLUDE": "0:2,6"
-      },
-      "SEQUENCE": 0
-    },
-    {
-      "ACTION": "set_uneven_int",
-      "ARGS": {
-        "EXCLUDE": "0:2,4:8"
-      },
-      "SEQUENCE": 1
-    }
-  ],
-  "py/object": "haidata.haidatacfg.HaiDataCfg",
-  "file_name": "..\\config\\cfg_for_testing.json"
+    "ACTIONS": [
+        {
+            "ACTION": "fix_encode",
+            "ARGS": {
+                "EXCLUDE": "0:2,6"
+            },
+            "SEQUENCE": 0
+        },
+        {
+            "ACTION": "set_uneven_int",
+            "ARGS": {
+                "EXCLUDE": "0:2,4:8"
+            },
+            "SEQUENCE": 1
+        }
+    ],
+    "py/object": "haidatacfg.HaiDataCfg",
+    "file_name": "D:\\CodeProjects\\haidata\\haidata\\tests\\../config\\cfg_for_testing.json"
 }

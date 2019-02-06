@@ -15,20 +15,19 @@ import os
 import pandas as pd
 import numpy as np
 from pandas.util.testing import assert_frame_equal
-import haidata
 
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath)
 sys.path.insert(0, os.path.join(myPath, '..'))
 sys.path.insert(0, os.path.join(myPath, '../config'))
 
-from haidata.haidatacfg import HaiDataCfg
-from haidata.haidatautils import int_list_from_exclude_include
+from haidatacfg import HaiDataCfg
+from haidatautils import int_list_from_exclude_include
 
 from test_helper_functions import helper_assert_haidatacfg
 from test_helper_functions import helper_assert_frame_not_equal
 
-from haidata.fix_encode import fix_encode
+from fix_encode import fix_encode
 from user_functions_for_testing import set_uneven_int
 
 df_input = pd.DataFrame.from_dict(dict({'ArtistBio': {1: 'Spanish, born 1936',

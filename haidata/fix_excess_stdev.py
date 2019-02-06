@@ -10,8 +10,6 @@ from haidatautils import mixed_list_to_int_list
 logging.disable(sys.maxsize)
 logger = logging.getLogger(__name__)
 
-# fix_excess_stdev(dfs2, {'COLS': "Price", 'DIFF' : "true", 'NUM_STD': 4.0, 'BY' : "Date"})
-# input_df = dfs2; args_dict = dict({'COLS': "Price", 'DIFF' : "true", 'NUM_STD': 4.0, 'BY' : "Date"})
 
 def fix_excess_stdev(input_df, args_dict):
 
@@ -56,14 +54,16 @@ def fix_excess_stdev(input_df, args_dict):
                 mean_diff = input_diff_px.mean()
                 std_diff = input_diff_px.std()
                 test_series = np.abs((input_diff_px - mean_diff) / std_diff)
+        
+        return input_df
+        
     else:
 
+        new_dfs = []
+        
         for column_name, std_multiplier, by_name in zip(input_df.columns[int_list_to_drop].values.tolist(),
                                                         std_multipliers, by_names):
 
-            # column_name = input_df.columns[int_list_to_drop].values.tolist()
-            # std_multiplier = std_multipliers[0]
-            # by_name = by_names[0]
             by_column_name = input_df.columns.values[by_name]
             by_values = input_df[by_column_name].unique()
 
@@ -85,39 +85,12 @@ def fix_excess_stdev(input_df, args_dict):
                     std_diff = input_diff_px.std()
                     test_series = np.abs((input_diff_px - mean_diff) / std_diff)
 
-                # input_df.is_copy = False
-                input_df = input_df.drop(input_df[input_df[by_column_name] == by_value].index)
-                input_df = pd.concat([input_df,input_df_subset])
+                new_dfs.append(input_df_subset)
+                # print(by_value)
 
-                print(by_value)
+            input_df = pd.concat(new_dfs)
+            
+        input_df.sort_index(inplace=True)
+        return input_df
 
-                # input_df.loc[input_df[by_column_name] == by_value] = input_df_subset
-    input_df.sort_index(inplace=True)
-    return input_df
-
-#
-# df1 = pd.DataFrame({'id1': [1001, 1002, 1001, 1003, 1004, 1005, 1002, 1006],
-#                     'value1': ["a", "b", "c", "d", "e", "f", "g", "h"],
-#                     'value3': ["yes", "no", "yes", "no", "no", "no", "yes", "no"]})
-#
-# df2 = pd.DataFrame({'id1': [1001, 1002],
-#                     'value1': ["rep1", "rep2"],
-#                     'value3': ["maybe", "maybe"]})
-#
-# df1[df1.id1.isin(df2.id1)] = df2
-# df1 = df1[~np.isnan(df1.id1)]
-#
-#
-# df1['g'] = df1.groupby('id1').cumcount()
-# df2['g'] = df2.groupby('id1').cumcount()
-# df1 = df1.set_index(['id1', 'g'])
-# df2 = df2.set_index(['id1', 'g'])
-# df3 = df2.combine_first(df1).reset_index(level=1, drop=True).astype(str).reset_index()
-# print(df3)
-#
-#
-# df = df.set_index('id1')
-# dfReplace = dfReplace.set_index('id2').rename(columns={'value2': 'value1'})
-#
-# # dfReplace.combine_first(df)
 #

@@ -3,7 +3,7 @@
 .. moduleauthor:: Hans Roggeman <hansroggeman2@gmail.com>
 
 """
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 
 import pandas as pd
 import numpy as np

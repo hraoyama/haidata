@@ -11,13 +11,12 @@ import pandas as pd
 import numpy as np
 import copy
 from pandas.util.testing import assert_frame_equal
-import haidata
 
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../')
 
-from haidata.fix_encode import fix_encode
-from haidata.haidatacfg import HaiDataCfg
+from fix_encode import fix_encode
+from haidatacfg import HaiDataCfg
 
 df_input_original = pd.DataFrame.from_dict(dict({'ArtistBio': {1: 'Spanish, born 1936',
                                2: 'American, born 1941',

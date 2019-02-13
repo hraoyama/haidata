@@ -9,11 +9,12 @@ sys.path.insert(0, myPath)
 sys.path.insert(0, myPath + '/../')
 sys.path.insert(0, myPath + '/../config')
 
+
 from haidatacfg import HaiDataCfg
 
 
 def helper_assert_haidatacfg(d, has_actions=True, has_file_name=False):
-    assert type(d) == HaiDataCfg
+    assert d.__class__.__name__ == HaiDataCfg.__name__
     if has_file_name:
         assert d.file_name is not None
     else:

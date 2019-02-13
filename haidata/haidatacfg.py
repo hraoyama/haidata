@@ -28,6 +28,7 @@ from operator import itemgetter
 from fix_encode import fix_encode
 from fix_colnames import fix_colnames
 from fix_empty_cols import fix_empty_cols
+from fix_empty_rows import fix_empty_rows
 from to_datetime import to_datetime
 from drop_cols import drop_cols
 from fix_excess_stdev import fix_excess_stdev
@@ -54,7 +55,7 @@ class HaiDataCfg(object):
     _constructed_time = None
     _settings = None
     _settings_file_name = 'haidata_settings.json'
-    _built_in_functions = ['fix_encode', "fix_colnames", "fix_empty_cols", "to_datetime", "drop_cols",
+    _built_in_functions = ['fix_encode', "fix_colnames", "fix_empty_cols", "fix_empty_rows", "to_datetime", "drop_cols",
                            "fix_excess_stdev", "turn_to_int", "turn_to_factor", "fix_syntax"]
     _user_functions = {}
 
@@ -79,6 +80,8 @@ class HaiDataCfg(object):
                                     df_result = fix_colnames(df_result, action['ARGS'])
                                 elif action_name == 'fix_empty_cols':
                                     df_result = fix_empty_cols(df_result, action['ARGS'])
+                                elif action_name == 'fix_empty_rows':
+                                    df_result = fix_empty_rows(df_result, action['ARGS'])
                                 elif action_name == 'to_datetime':
                                     df_result = to_datetime(df_result, action['ARGS'])
                                 elif action_name == 'drop_cols':

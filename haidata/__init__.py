@@ -3,22 +3,11 @@
 .. moduleauthor:: Hans Roggeman <hansroggeman2@gmail.com>
 
 """
-__version__ = '0.1.3'
+__version__ = '0.0.5'
 
-import pandas as pd
-import numpy as np
+
 import os
-
-from haidatautils import *
-from haidatacfg import *
-
-from drop_cols import *
-from fix_colnames import *
-from fix_empty_cols import *
-from fix_encode import *
-from fix_excess_stdev import *
-from to_datetime import *
-from turn_to_int import *
+import sys
 
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath)

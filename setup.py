@@ -11,7 +11,7 @@ setup(
     # Needed for dependencies
     install_requires=['numpy>=1.14','pandas>=0.20','pytest>=3.0','jsonpickle>=1.0','ftfy>=5.0'],
     # *strongly* suggested for sharing
-    version='0.0.5',
+    version='0.0.7',
     # The license can be anything you like
     license='BSD 3-Clause License',
     description='Configurable chainable modules for pandas DataFrame cleaning with persistance',

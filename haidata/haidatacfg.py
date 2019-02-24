@@ -55,8 +55,9 @@ class HaiDataCfg(object):
     _constructed_time = None
     _settings = None
     _settings_file_name = 'haidata_settings.json'
-    _built_in_functions = ['fix_encode', "fix_colnames", "fix_empty_cols", "fix_empty_rows", "to_datetime", "drop_cols",
-                           "fix_excess_stdev", "turn_to_int", "turn_to_factor", "fix_syntax"]
+    _built_in_functions = ['fix_encode', "fix_colnames", "fix_empty_cols", "fix_empty_rows",
+                           "to_datetime", "drop_cols", "fix_excess_stdev", "turn_to_int",
+                           "turn_to_factor", "fix_syntax"]
     _user_functions = {}
 
     def __init__(self):

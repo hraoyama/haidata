@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 def fix_excess_stdev(input_df, args_dict):
 
     int_list_to_drop = mixed_list_to_int_list(args_dict["COLS"], input_df.columns.values.tolist())
-    use_diff = strtobool(args_dict["DIFF"]) if "DIFF" in args_dict.keys() else False
+    use_diff = strtobool(str(args_dict["DIFF"])) if "DIFF" in args_dict.keys() else False
 
     # args_dict = dict({'NUM_STD': "3,6,5"})
     std_multipliers = [float(x) for x in str(args_dict["NUM_STD"]).split(",")] if \
@@ -28,7 +28,7 @@ def fix_excess_stdev(input_df, args_dict):
             "Length of Std dev multipliers ({0}) does not match length of column identifiers ({1})".format(
                 len(std_multipliers), len(int_list_to_drop)))
 
-    iterative = strtobool(args_dict["ITER"]) if "ITER" in args_dict.keys() else False
+    iterative = strtobool(str(args_dict["ITER"])) if "ITER" in args_dict.keys() else False
 
     by_names = None if "BY" not in args_dict.keys() else \
         [int(x) for x in mixed_list_to_int_list(args_dict["BY"], input_df.columns.values.tolist())]

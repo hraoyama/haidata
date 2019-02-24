@@ -54,3 +54,13 @@ def test_fix_empty_rows():
     assert (df.iloc[9, 0] == 9)
     assert (df2.iloc[7, 0] == 8)
     assert (df2.shape[0] < df.shape[0])
+
+    d = HaiDataCfg.construct_hai_data_cfg()
+    d.add_action("fix_empty_rows", dict({'MINIMUM': 0.5, 'ZERO': True}))
+    df2 = d(df, inplace=False)
+
+    assert (df.iloc[0, 0] == 0)
+    assert (df2.iloc[0, 0] == 1)
+    assert (df.iloc[9, 0] == 9)
+    assert (df2.iloc[7, 0] == 8)
+    assert (df2.shape[0] < df.shape[0])

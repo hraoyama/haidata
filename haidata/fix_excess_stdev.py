@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 def fix_excess_stdev(input_df, args_dict):
-
+    
     int_list_to_drop = mixed_list_to_int_list(args_dict["COLS"], input_df.columns.values.tolist())
     use_diff = strtobool(str(args_dict["DIFF"])) if "DIFF" in args_dict.keys() else False
 

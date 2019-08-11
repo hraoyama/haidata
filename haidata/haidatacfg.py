@@ -32,6 +32,7 @@ from fix_empty_rows import fix_empty_rows
 from to_datetime import to_datetime
 from drop_cols import drop_cols
 from fix_excess_stdev import fix_excess_stdev
+from set_excess_stdev import set_excess_stdev
 from haidatautils import dicts_get
 
 logging.disable(sys.maxsize)
@@ -56,8 +57,8 @@ class HaiDataCfg(object):
     _settings = None
     _settings_file_name = 'haidata_settings.json'
     _built_in_functions = ['fix_encode', "fix_colnames", "fix_empty_cols", "fix_empty_rows",
-                           "to_datetime", "drop_cols", "fix_excess_stdev", "turn_to_int",
-                           "turn_to_factor", "fix_syntax"]
+                           "to_datetime", "drop_cols", "fix_excess_stdev", "set_excess_stdev",
+                           "turn_to_int","turn_to_factor", "fix_syntax"]
     _user_functions = {}
 
     def __init__(self):
@@ -89,6 +90,8 @@ class HaiDataCfg(object):
                                     df_result = drop_cols(df_result, action['ARGS'])
                                 elif action_name == 'fix_excess_stdev':
                                     df_result = fix_excess_stdev(df_result, action['ARGS'])
+                                elif action_name == 'set_excess_stdev':
+                                    df_result = set_excess_stdev(df_result, action['ARGS'])
                                 elif action_name in self._built_in_functions:
                                     pass  # not implemented yet
                                 else:

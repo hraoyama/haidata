@@ -22,6 +22,18 @@ logging.disable(sys.maxsize)
 logger = logging.getLogger(__name__)
 
 
+def string_from_list(input_list):
+    if type(input_list) is list:
+        return ','.join([str(x) for x in input_list])
+    else:
+        return str(input_list)
+
+def stringify_dict_value(input_dict, key):
+    if str(key) in input_dict.keys():
+        return string_from_list(input_dict[key])
+    else:
+        return None
+
 def int_list_to_element_list(input_string, list_of_strings):
     """Given a string representing a list of slices, (e.g. '4:6,1:3,200,40:44'), extract the corresponding elements from a supplied list
 
